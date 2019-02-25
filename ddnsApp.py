@@ -1,7 +1,7 @@
 import subprocess, requests, logging
 
 
-API_SECRET = "XXXXXXXXXXXXXX" 
+API_SECRET = "YOUR_DIGITAL_OCEAN_API_KEY" 
 
 #updateDomainARecord(currentIP)
 
@@ -13,13 +13,12 @@ def getCurrentIP():
 	return currentIP
 
 def validateAndUpdateIPLocally(currentIP):
-	with open('resources/private_info.txt','r') as inputfile:
+	with open('private_info.txt','r') as inputfile:
 		lines = inputfile.readlines()
 		if lines:
 			lineCounter = 0
 			for line in lines:
 				lineCounter = lineCounter + 1
-				print("lincCouneter")
 				if lineCounter < 2:
 					if currentIP == line:
 						break
